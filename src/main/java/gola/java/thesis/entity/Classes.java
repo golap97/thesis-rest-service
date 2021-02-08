@@ -10,13 +10,21 @@ public class Classes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int id;
+
     @NotBlank(message = "Podaj przedmiot.")
+    @Column(name = "subject")
     private String subject;
+
     @NotBlank(message = "Podaj prowadzącego.")
+    @Column(name = "lecturer")
     private String lecturer;
+
     @NotBlank(message = "Podaj forme zajęć (seminarium, wykład, laboratoria, ćwiczenia).")
+    @Column(name = "form")
     private String form;
+
     @NotBlank(message = "Zaliczenie true, czy false?")
+    @Column(name = "pass")
     private boolean pass;
 
     public Classes() {

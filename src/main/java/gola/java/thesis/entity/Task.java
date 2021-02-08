@@ -10,8 +10,13 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
     @NotBlank(message = "Opis nie moze byc pusty")
+    @Column(name = "description")
     private String description;
+    
+    @NotBlank(message = "Zadanie true czy false?")
+    @Column(name = "done")
     private boolean done;
 
     public Task() {

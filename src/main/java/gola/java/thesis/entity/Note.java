@@ -1,6 +1,7 @@
 package gola.java.thesis.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "note_db")
@@ -9,7 +10,13 @@ public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @NotBlank(message = "Wpisz tytul.")
+    @Column(name = "title")
     private String title;
+
+    @NotBlank(message = "Opis notatki jest pusty. Uzupelnij go!")
+    @Column(name = "description")
     private String description;
 
     public Note() {

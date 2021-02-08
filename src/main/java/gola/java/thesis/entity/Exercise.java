@@ -10,9 +10,13 @@ public class Exercise {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotBlank(message = "Write any content.")
+
+    @NotBlank(message = "Wpisz jakas tresc.")
+    @Column(name = "content")
     private String content;
-    @NotBlank(message = "Write any author.")
+
+    @NotBlank(message = "Wpisz nazwe autora.")
+    @Column(name = "author")
     private String author;
 
     public Exercise() {
