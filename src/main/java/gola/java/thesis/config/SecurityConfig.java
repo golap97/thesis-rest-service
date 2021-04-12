@@ -38,6 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
         // Dostęp do pola testowego
         http.httpBasic().and().authorizeRequests()
                 .antMatchers("/test").hasRole("STUDENT")
@@ -101,6 +102,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // Dostep do Student
         http.httpBasic().and().authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/students").permitAll()
+                .antMatchers(HttpMethod.POST, "/students").permitAll()
+                .antMatchers(HttpMethod.PUT, "/students").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/students").permitAll()
                 .and()
                 .formLogin().permitAll()
                 .and()

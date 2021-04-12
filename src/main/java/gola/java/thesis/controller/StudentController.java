@@ -1,4 +1,4 @@
-package gola.java.thesis.controller;
+    package gola.java.thesis.controller;
 
 import gola.java.thesis.entity.Student;
 import gola.java.thesis.service.StudentService;
