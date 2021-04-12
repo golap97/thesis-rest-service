@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Aktualizacja studenta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+
+<body style="background-color:rgb(34, 34, 34);">
+
+    <div class="container my-3">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Menu</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault"
+                 aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          
+              <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Zajęcia</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Studenci</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Zadania</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Notatki</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Wyloguj</a>
+                  </li>
+
+                </ul>
+
+                <form class="d-xl-inline-flex">
+                  <input class="form-control me-2" type="search" placeholder="Wyszukaj..." aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Szukaj</button>
+                </form>
+                
+              </div>
+
+            </div>
+    </div>
+
+    <div class="container my-5">
+        <h3> .</h3>
+        <div class="card">
+            <div class="card-body">
+                <h3> Aktualizuj studenta</h3>
+                <div class="col-md-8">
+                    <form action="#" th:action="@{/students/update/{id}(id=${student.id})}" th:object="${student}" method="post">
+                        <div class="row">
+
+                            <div class="form-group col-md-8">
+                                <label for="name" class="col-form-label">Imię</label>
+                                <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Wpisz imię...">
+                                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group col-md-8">
+                                <label for="lastName" class="col-form-label">Nazwisko</label>
+                                <input type="text" th:field="*{lastName}" class="form-control" id="lastName" placeholder="Wpisz nazwisko...">
+                                <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="form-group col-md-8">
+                                <label for="fieldOfStudy" class="col-form-label">Kierunek studiów</label>
+                                <input type="text" th:field="*{fieldOfStudy}" class="form-control" id="fieldOfStudy" placeholder="Wpisz kierunek studiów...">
+                                <span th:if="${#fields.hasErrors('fieldOfStudy')}" th:errors="*{fieldOfStudy}" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group col-md-8">
+                                <label for="semestr" class="col-form-label">Semestr</label>
+                                <input type="text" th:field="*{semestr}" class="form-control" id="semestr" placeholder="Wpisz semestr...">
+                                <span th:if="${#fields.hasErrors('semestr')}" th:errors="*{semestr}" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group col-md-8">
+                                <label for="phone" class="col-form-label">Numer</label>
+                                <input type="phone" th:field="*{phone}" class="form-control" id="phone" placeholder="Wpisz numer telefonu...">
+                                <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group col-md-8">
+                                <input type="submit" class="btn btn-primary" value="Zaktualizuj studenta">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
